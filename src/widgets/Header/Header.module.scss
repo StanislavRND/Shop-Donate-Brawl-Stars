@@ -1,5 +1,5 @@
-@use '@/shared/styles/variables' as *;
-@use '@/shared/styles/mixins' as mixins;
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as mixins;
 
 .header {
   position: sticky;
@@ -107,7 +107,7 @@
   @include mixins.gold-button($spacing-xs);
 
   flex-shrink: 0;
-
+  height: 38px;
   font-size: $font-size-sm;
 }
 
