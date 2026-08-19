@@ -1,0 +1,101 @@
+// =============================================================================
+// Переиспользуемые декоративные примитивы для секций.
+// Абстрактные элементы на основе границ и точечных заливок — без градиентов.
+// Позиционирование и прозрачность задаются в конкретных компонентах.
+// =============================================================================
+
+@use 'variables' as *;
+
+// Слой декоративных элементов секции.
+@mixin decor-layer {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+}
+
+// Тонкое кольцо-контур.
+@mixin decor-ring {
+  position: absolute;
+
+  border: 1px solid $color-accent;
+  border-radius: 50%;
+}
+
+// Маленькая точка.
+@mixin decor-dot {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+
+  background-color: $color-accent;
+}
+
+// Крестик «+» из псевдоэлементов.
+@mixin decor-plus {
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+
+    background-color: $color-accent;
+  }
+
+  &::before {
+    top: 50%;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    transform: translateY(-50%);
+  }
+
+  &::after {
+    top: 0;
+    left: 50%;
+
+    width: 1px;
+    height: 100%;
+
+    transform: translateX(-50%);
+  }
+}
+
+// Тонкая диагональная линия.
+@mixin decor-line {
+  position: absolute;
+
+  width: 1px;
+  height: 120px;
+
+  background-color: $color-accent;
+  opacity: 0.12;
+
+  transform: rotate(45deg);
+}
+
+// Ромб — контур повёрнутого квадрата.
+@mixin decor-square {
+  position: absolute;
+
+  width: 16px;
+  height: 16px;
+  border: 1px solid $color-accent;
+
+  opacity: 0.25;
+
+  transform: rotate(45deg);
+}
+
+// Точечная сетка (SVG-паттерн, не градиент). Цвет — золотой акцент проекта.
+@mixin decor-dot-grid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23d4af37' fill-opacity='0.08'/%3E%3C/svg%3E");
+}

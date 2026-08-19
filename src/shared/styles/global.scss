@@ -1,0 +1,55 @@
+// =============================================================================
+// Точка входа глобальных стилей: reset + темы + базовые стили приложения.
+// Импортируется один раз в main.tsx.
+// =============================================================================
+
+@use 'reset';
+@use 'themes';
+@use 'variables' as *;
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: 1.6;
+
+  color: $color-text;
+  background-color: $color-bg;
+
+  transition:
+    color $transition-base,
+    background-color $transition-base;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+// --- Доступность и мелкие детали интерфейса ------------------------------------------
+
+:focus-visible {
+  outline: 2px solid $color-accent;
+  outline-offset: 2px;
+}
+
+::selection {
+  color: $color-accent-contrast;
+  background-color: $color-accent;
+}
+
+// Для заголовков, которые нужны скринридерам, но не визуалу.
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+
+  border: 0;
+}

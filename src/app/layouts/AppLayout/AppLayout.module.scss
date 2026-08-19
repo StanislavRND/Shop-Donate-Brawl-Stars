@@ -1,0 +1,26 @@
+@use '@/shared/styles/variables' as *;
+
+// Ссылка для перехода к контенту — видна только при фокусе с клавиатуры.
+
+.skipLink {
+  position: fixed;
+  top: $spacing-md;
+  left: $spacing-md;
+  z-index: 200;
+
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+
+  background-color: $color-accent;
+  color: $color-accent-contrast;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+
+  transform: translateY(-200%);
+
+  transition: transform $transition-fast;
+
+  &:focus {
+    transform: translateY(0);
+  }
+}

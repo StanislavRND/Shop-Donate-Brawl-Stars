@@ -1,0 +1,221 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/decor' as decor;
+
+// Первый экран: самый generous вертикальный ритм страницы.
+
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  padding: $section-py-mobile 0;
+
+  background-color: $color-bg;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: $section-py-tablet 0;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding: 128px 0;
+  }
+}
+
+// --- Декор -------------------------------------------------------------------------
+
+.decor {
+  @include decor.decor-layer;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+
+  @include decor.decor-dot-grid;
+}
+
+.ring {
+  @include decor.decor-ring;
+
+  top: -160px;
+  right: -200px;
+
+  width: 520px;
+  height: 520px;
+
+  opacity: 0.14;
+
+  @media (min-width: $breakpoint-tablet) {
+    top: -200px;
+    right: -160px;
+
+    width: 640px;
+    height: 640px;
+  }
+}
+
+.ringSmall {
+  top: auto;
+  right: auto;
+  bottom: -120px;
+  left: -180px;
+
+  width: 360px;
+  height: 360px;
+
+  opacity: 0.1;
+
+  @media (min-width: $breakpoint-tablet) {
+    bottom: -160px;
+    left: -140px;
+
+    width: 420px;
+    height: 420px;
+  }
+}
+
+.ringFaint {
+  top: 30%;
+  right: 8%;
+
+  width: 180px;
+  height: 180px;
+
+  opacity: 0.08;
+
+  @media (max-width: $breakpoint-mobile-sm) {
+    display: none;
+  }
+}
+
+.dot {
+  @include decor.decor-dot;
+
+  top: 20%;
+  right: 14%;
+
+  opacity: 0.5;
+}
+
+.dotSecond {
+  top: 64%;
+  right: 28%;
+
+  width: 4px;
+  height: 4px;
+
+  opacity: 0.35;
+}
+
+.dotThird {
+  top: 32%;
+  left: 6%;
+
+  opacity: 0.3;
+}
+
+.dotFourth {
+  bottom: 12%;
+  left: 30%;
+
+  width: 4px;
+  height: 4px;
+
+  opacity: 0.25;
+
+  @media (max-width: $breakpoint-mobile-sm) {
+    display: none;
+  }
+}
+
+.plus {
+  @include decor.decor-plus;
+
+  top: 18%;
+  left: 18%;
+
+  opacity: 0.25;
+}
+
+.plusSecond {
+  top: auto;
+  right: 10%;
+  bottom: 20%;
+
+  opacity: 0.2;
+}
+
+.line {
+  @include decor.decor-line;
+
+  top: 16%;
+  right: 24%;
+}
+
+.lineSecond {
+  bottom: 14%;
+  left: 12%;
+
+  height: 90px;
+
+  opacity: 0.09;
+
+  @media (max-width: $breakpoint-mobile-sm) {
+    display: none;
+  }
+}
+
+.square {
+  @include decor.decor-square;
+
+  top: 72%;
+  right: 18%;
+
+  @media (max-width: $breakpoint-mobile-sm) {
+    display: none;
+  }
+}
+
+// --- Контент ------------------------------------------------------------------------
+
+.tagline {
+  display: inline-block;
+  position: relative;
+
+  margin-bottom: $spacing-md;
+  padding: $spacing-xs $spacing-md;
+  border: 1px solid $color-accent;
+  border-radius: $radius-full;
+
+  color: $color-accent;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.title {
+  position: relative;
+
+  margin: 0 0 $spacing-lg;
+
+  color: $color-text;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: $font-weight-bold;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.titleAccent {
+  color: $color-accent;
+}
+
+.subtitle {
+  position: relative;
+
+  max-width: 560px;
+  margin: 0 0 $spacing-xl;
+
+  color: $color-text-muted;
+  font-size: clamp($font-size-base, 2.5vw, 1.25rem);
+  line-height: 1.6;
+}

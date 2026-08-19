@@ -1,0 +1,14 @@
+@use '@/shared/styles/variables' as *;
+
+.container {
+  position: relative;
+
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 $spacing-lg;
+  }
+}

@@ -1,0 +1,78 @@
+@use '@/shared/styles/variables' as *;
+
+.footer {
+  border-top: 1px solid $color-border;
+
+  background-color: $color-surface;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $spacing-xl;
+
+  padding: $spacing-2xl 0 $spacing-xl;
+}
+
+// --- Бренд ------------------------------------------------------------------------
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $spacing-md;
+
+  max-width: 320px;
+}
+
+.description {
+  margin: 0;
+
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+  line-height: 1.6;
+}
+
+// --- Навигация ----------------------------------------------------------------------
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.navLink {
+  color: $color-text-muted;
+  text-decoration: none;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-text;
+  }
+}
+
+.navLinkActive {
+  color: $color-accent;
+}
+
+// --- Нижняя строка ----------------------------------------------------------------------
+
+.bottom {
+  padding: $spacing-lg 0;
+
+  border-top: 1px solid $color-border;
+}
+
+.copyright {
+  margin: 0;
+
+  text-align: center;
+
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}

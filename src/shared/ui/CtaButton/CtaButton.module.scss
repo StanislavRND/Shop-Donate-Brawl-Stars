@@ -1,0 +1,16 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/mixins' as mixins;
+
+.button {
+  @include mixins.gold-button($spacing-md);
+
+  position: relative;
+}
+
+.icon {
+  transition: transform $transition-fast;
+}
+
+.button:hover .icon {
+  transform: translateX(3px);
+}

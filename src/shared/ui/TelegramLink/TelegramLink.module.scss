@@ -1,0 +1,39 @@
+@use '@/shared/styles/variables' as *;
+
+// База — капсула для header / footer; .block расширяет до широкой кнопки.
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+
+  color: $color-text;
+  text-decoration: none;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+
+  transition:
+    border-color $transition-fast,
+    background-color $transition-fast;
+
+  &:hover {
+    border-color: $color-accent;
+    background-color: $color-surface-hover;
+  }
+}
+
+// Широкая кнопка для мобильного меню.
+.block {
+  justify-content: center;
+
+  padding: $spacing-sm;
+  border-radius: $radius-md;
+}
+
+.icon {
+  color: $color-accent;
+}

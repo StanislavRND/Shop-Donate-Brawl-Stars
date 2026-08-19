@@ -1,0 +1,116 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/decor' as decor;
+@use '@/shared/styles/mixins' as mixins;
+
+.section {
+  @include mixins.section-base;
+
+  background-color: $color-bg;
+}
+
+// --- Декор -------------------------------------------------------------------------
+
+.decor {
+  @include decor.decor-layer;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+
+  @include decor.decor-dot-grid;
+}
+
+.ring {
+  @include decor.decor-ring;
+
+  top: 50%;
+  left: 50%;
+
+  width: 560px;
+  height: 560px;
+
+  opacity: 0.08;
+
+  transform: translate(-50%, -50%);
+
+  @media (max-width: $breakpoint-mobile-sm) {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+.dotFirst {
+  @include decor.decor-dot;
+
+  top: 26%;
+  left: 18%;
+
+  width: 4px;
+  height: 4px;
+
+  opacity: 0.3;
+}
+
+.dotSecond {
+  @include decor.decor-dot;
+
+  bottom: 22%;
+  right: 16%;
+
+  opacity: 0.25;
+}
+
+.plus {
+  @include decor.decor-plus;
+
+  top: 22%;
+  left: 24%;
+
+  opacity: 0.2;
+}
+
+// --- Контент ------------------------------------------------------------------------
+
+.inner {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 560px;
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.title {
+  position: relative;
+
+  margin: 0 0 $spacing-md;
+
+  color: $color-text;
+  font-size: clamp($font-size-xl, 4vw, 2.5rem);
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+
+  &::after {
+    content: '';
+    display: block;
+
+    width: 40px;
+    height: 2px;
+    margin: $spacing-md auto 0;
+
+    background-color: $color-accent;
+  }
+}
+
+.text {
+  margin: 0 0 $spacing-xl;
+
+  color: $color-text-muted;
+  font-size: clamp($font-size-base, 2.5vw, 1.25rem);
+  line-height: 1.6;
+}

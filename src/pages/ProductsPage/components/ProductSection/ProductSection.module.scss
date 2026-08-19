@@ -1,0 +1,65 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as mixins;
+
+// Универсальная секция каталога: заголовок + сетка карточек товара.
+// Отображается одна на страницу (переключается категориями сверху).
+
+.section {
+  @include mixins.section-base;
+
+  // Каталог компактнее контентных секций: переключатель — рядом с товарами,
+  // карточки начинаются выше. Локальное переопределение section-base.
+  padding: $spacing-lg 0 $spacing-xl;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: $spacing-xl 0 $spacing-2xl;
+  }
+
+  background-color: $color-bg-alt;
+}
+
+.title {
+  @include mixins.section-title;
+}
+
+.gridThree,
+.gridFour {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: $breakpoint-mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    gap: $spacing-lg;
+  }
+}
+
+.gridFour {
+  @media (min-width: $breakpoint-desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.gridThree {
+  @media (min-width: $breakpoint-desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Карточки в ячейках сетки растягиваются на одинаковую высоту и ширину.
+
+.item {
+  display: flex;
+
+  > * {
+    flex: 1;
+    width: 100%;
+  }
+}

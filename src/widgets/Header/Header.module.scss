@@ -1,0 +1,234 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/mixins' as mixins;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background-color: $color-surface;
+  border-bottom: 1px solid $color-border;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+
+  max-width: $container-max-width;
+  min-height: 64px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 $spacing-lg;
+  }
+}
+
+// --- Навигация (desktop) -----------------------------------------------------------
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: $spacing-xs;
+
+  @media (min-width: $breakpoint-tablet) {
+    display: flex;
+  }
+}
+
+.navLink {
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-full;
+
+  color: $color-text-muted;
+  text-decoration: none;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+
+  transition:
+    color $transition-fast,
+    background-color $transition-fast;
+
+  &:hover {
+    color: $color-text;
+    background-color: $color-surface-hover;
+  }
+}
+
+.navLinkActive {
+  color: $color-accent;
+  background-color: $color-surface-hover;
+
+  &:hover {
+    color: $color-accent-hover;
+  }
+}
+
+// --- Действия ---------------------------------------------------------------------
+// Переключатель темы — левее всех, затем авторизация (на телефонах
+// переезжает в бургер-меню), затем бургер.
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+// Круглая иконочная кнопка (тема, корзина, профиль).
+.iconButton {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+
+  color: $color-text;
+  background-color: transparent;
+  cursor: pointer;
+
+  transition:
+    border-color $transition-fast,
+    background-color $transition-fast;
+
+  &:hover {
+    border-color: $color-accent;
+    background-color: $color-surface-hover;
+  }
+}
+
+// Золотая кнопка «Войти» (desktop).
+.loginButton {
+  @include mixins.gold-button($spacing-xs);
+
+  flex-shrink: 0;
+
+  font-size: $font-size-sm;
+}
+
+// Кнопки авторизации видны только от планшета — на телефонах они в бургер-меню.
+// Важно: объявлено после .iconButton/.loginButton, чтобы display: none
+// выигрывал каскад у их display из миксина.
+
+.authAction {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    display: none;
+  }
+}
+
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+
+  color: $color-text;
+  background-color: transparent;
+  cursor: pointer;
+
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: $color-surface-hover;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+}
+
+// --- Мобильное меню ------------------------------------------------------------------
+
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  padding: $spacing-md $spacing-md $spacing-lg;
+
+  border-top: 1px solid $color-border;
+  background-color: $color-surface;
+
+  @media (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.mobileLink {
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+
+  color: $color-text-muted;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+
+  transition:
+    color $transition-fast,
+    background-color $transition-fast;
+
+  &:hover {
+    color: $color-text;
+    background-color: $color-surface-hover;
+  }
+}
+
+.mobileLinkActive {
+  color: $color-accent;
+  background-color: $color-surface-hover;
+}
+
+// Авторизация в мобильном меню (переехала из панели header).
+
+.mobileAuth {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.mobileAuthButton {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+
+  color: $color-text;
+  background-color: transparent;
+  font-weight: $font-weight-medium;
+
+  transition:
+    border-color $transition-fast,
+    background-color $transition-fast;
+
+  &:hover {
+    border-color: $color-accent;
+    background-color: $color-surface-hover;
+  }
+
+  svg {
+    color: $color-accent;
+  }
+}
+
+.mobileLoginButton {
+  @include mixins.gold-button($spacing-sm);
+
+  width: 100%;
+}

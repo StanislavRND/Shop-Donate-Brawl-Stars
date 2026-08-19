@@ -1,0 +1,23 @@
+@use '@/shared/styles/variables' as *;
+
+.logo {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: $spacing-sm;
+
+  color: $color-text;
+  text-decoration: none;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-lg;
+}
+
+.image {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.accent {
+  color: $color-accent;
+}

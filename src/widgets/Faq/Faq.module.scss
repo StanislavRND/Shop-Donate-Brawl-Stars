@@ -1,0 +1,147 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/decor" as decor;
+@use "@/shared/styles/mixins" as mixins;
+
+// FAQ — список вопросов с разделителями, без карточек.
+
+.faq {
+  @include mixins.section-base;
+
+  background-color: $color-bg-alt;
+  border-top: 1px solid $color-border;
+}
+
+// --- Декор -------------------------------------------------------------------------
+
+.decor {
+  @include decor.decor-layer;
+}
+
+.ring {
+  @include decor.decor-ring;
+
+  top: auto;
+  right: -150px;
+  bottom: -180px;
+
+  width: 400px;
+  height: 400px;
+
+  opacity: 0.07;
+}
+
+.dotFirst {
+  @include decor.decor-dot;
+
+  top: 14%;
+  left: 6%;
+
+  width: 4px;
+  height: 4px;
+
+  opacity: 0.3;
+}
+
+.dotSecond {
+  @include decor.decor-dot;
+
+  bottom: 12%;
+  left: 24%;
+
+  opacity: 0.2;
+}
+
+.plus {
+  @include decor.decor-plus;
+
+  top: 20%;
+  right: 10%;
+
+  opacity: 0.15;
+}
+
+// --- Контент ------------------------------------------------------------------------
+
+.title {
+  @include mixins.section-title;
+}
+
+.list {
+  position: relative;
+}
+
+.item {
+  border-top: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: 1px solid $color-border;
+  }
+}
+
+.questionHeading {
+  margin: 0;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+
+  width: 100%;
+  padding: $spacing-lg 0;
+
+  color: $color-text;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  text-align: left;
+
+  transition: color $transition-fast;
+
+  @media (min-width: $breakpoint-mobile) {
+    font-size: $font-size-lg;
+  }
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.questionIndex {
+  color: $color-accent;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  opacity: 0.6;
+}
+
+.chevron {
+  flex-shrink: 0;
+  margin-left: auto;
+
+  color: $color-accent;
+
+  transition: transform $transition-base;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.answer {
+  padding: 0 0 $spacing-lg;
+
+  @media (min-width: $breakpoint-mobile) {
+    padding-left: calc($spacing-md + $font-size-lg);
+  }
+}
+
+.answerText {
+  margin: 0;
+
+  color: $color-text-muted;
+  line-height: 1.7;
+}
+
+.answerAccent {
+  color: $color-accent;
+  font-weight: $font-weight-semibold;
+}

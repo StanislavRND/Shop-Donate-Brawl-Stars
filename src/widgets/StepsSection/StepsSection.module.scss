@@ -1,0 +1,205 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/decor' as decor;
+@use '@/shared/styles/mixins' as mixins;
+
+// Timeline: mobile / tablet — вертикальный рельс с узлами,
+// desktop — горизонтальная линия, соединяющая центры пяти узлов
+// (центры равных колонок сетки: 10% / 30% / 50% / 70% / 90%).
+
+.section {
+  @include mixins.section-base;
+
+  background-color: $color-bg;
+}
+
+// --- Декор -------------------------------------------------------------------------
+
+.decor {
+  @include decor.decor-layer;
+}
+
+.ring {
+  @include decor.decor-ring;
+
+  top: -140px;
+  left: -160px;
+
+  width: 380px;
+  height: 380px;
+
+  opacity: 0.07;
+}
+
+.dotFirst {
+  @include decor.decor-dot;
+
+  top: 14%;
+  left: 5%;
+
+  width: 4px;
+  height: 4px;
+
+  opacity: 0.3;
+}
+
+.dotSecond {
+  @include decor.decor-dot;
+
+  bottom: 10%;
+  right: 8%;
+
+  opacity: 0.25;
+}
+
+.plus {
+  @include decor.decor-plus;
+
+  top: 20%;
+  right: 12%;
+
+  opacity: 0.15;
+}
+
+// --- Timeline ------------------------------------------------------------------------
+
+.title {
+  @include mixins.section-title;
+}
+
+.list {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: $breakpoint-desktop) {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $spacing-lg;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: 9%;
+      right: 9%;
+
+      height: 1px;
+
+      background-color: $color-border;
+    }
+  }
+}
+
+.step {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  align-items: start;
+  gap: $spacing-md;
+
+  // Вертикальный участок рельса под узлом (кроме последнего шага).
+  &::after {
+    content: '';
+    position: absolute;
+    top: 68px;
+    bottom: calc(-1 * $spacing-xl);
+    left: 30px;
+
+    width: 1px;
+
+    background-color: $color-border;
+  }
+
+  &:last-child::after {
+    display: none;
+  }
+
+  &:hover .marker {
+    border-color: $color-accent;
+    color: $color-accent-hover;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.marker {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+  height: 60px;
+  border: 1px solid $color-accent;
+  border-radius: 50%;
+
+  color: $color-accent;
+  background-color: $color-bg;
+
+  transition:
+    border-color $transition-base,
+    color $transition-base;
+
+  @media (min-width: $breakpoint-desktop) {
+    margin-bottom: $spacing-md;
+  }
+}
+
+.markerIcon {
+  flex-shrink: 0;
+}
+
+.content {
+  @media (min-width: $breakpoint-desktop) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.number {
+  display: block;
+
+  margin-bottom: $spacing-xs;
+
+  color: $color-accent;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: $font-weight-bold;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.stepTitle {
+  margin: 0 0 $spacing-xs;
+
+  color: $color-text;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  line-height: 1.3;
+}
+
+.stepText {
+  margin: 0;
+
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+  line-height: 1.6;
+}

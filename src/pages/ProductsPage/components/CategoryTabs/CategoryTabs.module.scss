@@ -1,0 +1,75 @@
+@use "@/shared/styles/variables" as *;
+
+// Компактная навигация по категориям над товарами — без отдельного фона,
+// сливается с секцией каталога. Липнет под header при прокрутке;
+// на телефонах — горизонтальный скролл.
+
+.tabsBar {
+  position: sticky;
+  top: 64px; // высота header
+  z-index: 90;
+
+  padding: $spacing-md 0;
+
+  background-color: $color-bg;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: $spacing-lg 0;
+  }
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 $spacing-lg;
+  }
+}
+
+.tab {
+  flex-shrink: 0;
+
+  padding: 6px 14px;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+
+  color: $color-text;
+  white-space: nowrap;
+  font-size: 0.8125rem;
+  font-weight: $font-weight-medium;
+
+  transition:
+    border-color $transition-fast,
+    background-color $transition-fast,
+    color $transition-fast;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-sm;
+  }
+
+  &:hover {
+    border-color: $color-accent;
+    background-color: $color-surface-hover;
+  }
+}
+
+.tabActive {
+  border-color: $color-accent;
+
+  color: $color-accent;
+  background-color: $color-surface-hover;
+}

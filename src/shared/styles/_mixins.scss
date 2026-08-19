@@ -1,0 +1,77 @@
+// =============================================================================
+// Общие SCSS-миксины: базовая оболочка секции и стили её заголовка.
+// =============================================================================
+
+@use 'variables' as *;
+
+// Оболочка контентной секции: относительное позиционирование под декор,
+// обрезка переполнения, отступ под sticky-хедер для якорной прокрутки
+// и единый вертикальный ритм.
+@mixin section-base {
+  position: relative;
+  overflow: hidden;
+
+  // Высота header (64px) + воздух.
+  scroll-margin-top: 80px;
+
+  padding: $section-py-mobile 0;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: $section-py-tablet 0;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding: $section-py-desktop 0;
+  }
+}
+
+// Заголовок секции с короткой золотой линией-акцентом снизу.
+@mixin section-title {
+  position: relative;
+
+  margin: 0 0 $spacing-xl;
+
+  color: $color-text;
+  font-size: clamp($font-size-xl, 4vw, 2rem);
+  font-weight: $font-weight-semibold;
+  line-height: 1.2;
+
+  &::after {
+    content: '';
+    display: block;
+
+    width: 40px;
+    height: 2px;
+    margin-top: $spacing-md;
+
+    background-color: $color-accent;
+  }
+}
+
+// Золотая кнопка-действие (ссылка или button).
+@mixin gold-button($py: $spacing-sm) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+
+  padding: $py $spacing-xl;
+  border: none;
+  border-radius: $radius-full;
+
+  background-color: $color-accent;
+  color: $color-accent-contrast;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: $color-accent-hover;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
