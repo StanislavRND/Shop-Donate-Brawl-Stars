@@ -20,7 +20,7 @@ export default defineConfig({
       // Backend на :8000, фронт на :5173. Прокси делает их same-origin,
       // чтобы HttpOnly cookies access/refresh работали без CORS-танцев.
       '/api': {
-        target: 'http://localhost:8000',
+        target: 'https://shop-donate-brawl-stars-backend.vercel.app',
         changeOrigin: true,
       },
     },
