@@ -49,11 +49,11 @@ class Settings(BaseSettings):
     EMAIL_VERIFICATION_CODE_EXPIRE_MINUTES: int = 10
 
     # SMTP
-    SMTP_HOST: str = "localhost"
+    SMTP_HOST: str = "smtp.mail.ru"
     SMTP_PORT: int = 587
-    SMTP_USER: str = ""
-    SMTP_PASSWORD: str = ""
-    SMTP_FROM_EMAIL: str = "noreply@example.com"
+    SMTP_USER: str = "vanta-shop@mail.ru"
+    SMTP_PASSWORD: str = "MwVEcOZmAuWOsWjQHpfG"
+    SMTP_FROM_EMAIL: str = "vanta-shop@mail.ru"
     SMTP_FROM_NAME: str = "Vanta Shop"
     SMTP_STARTTLS: bool = True
 
