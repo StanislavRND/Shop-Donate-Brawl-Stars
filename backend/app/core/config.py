@@ -57,7 +57,7 @@ class Settings(BaseSettings):
     SMTP_STARTTLS: bool = True
 
     # CORS: comma-separated list of allowed origins, e.g. "http://localhost:5173,https://example.com"
-    CORS_ORIGINS: str = "https://shop-donate-brawl-stars.vercel.app/"
+    CORS_ORIGINS: str = "https://shop-donate-brawl-stars.vercel.app"
 
     # Auth cookies
     COOKIES_SECURE: bool = False  # True in production: cookies only sent over HTTPS
