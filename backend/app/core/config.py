@@ -31,8 +31,8 @@ class Settings(BaseSettings):
     @property
     def database_url(self) -> str:
         """Async SQLAlchemy URL (asyncpg driver for PostgreSQL)."""
-        if self.DATABASE_URL:
-            return self.DATABASE_URL
+        if self.DATABASE_URL_ASYNC:
+            return self.DATABASE_URL_ASYNC
         return (
             f"postgresql+asyncpg://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}"
             f"@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
