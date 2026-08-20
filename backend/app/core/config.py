@@ -26,7 +26,8 @@ class Settings(BaseSettings):
     POSTGRES_PASSWORD: str = "npg_6l1wWmUSZMGA"
     POSTGRES_DB: str = "neondb"
     # Optional full override of the SQLAlchemy URL (used in tests / CI)
-    DATABASE_URL: str | None = None
+    DATABASE_URL_ASYNC: str | None = None
+    
 
     @property
     def database_url(self) -> str:
