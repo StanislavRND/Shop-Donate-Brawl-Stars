@@ -70,7 +70,7 @@ export const resetSession = () => {
 };
 
 export const api = axios.create({
-  baseURL: '/api/v1',
+  baseURL: 'https://shop-donate-brawl-stars-backend.vercel.app/api/v1',
   withCredentials: true,
 });
 
