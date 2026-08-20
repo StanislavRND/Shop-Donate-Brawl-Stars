@@ -1,0 +1,77 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/decor" as decor;
+@use "@/shared/styles/mixins" as mixins;
+
+// Секция растягивается на свободную высоту страницы и центрирует карточку.
+
+.section {
+  @include mixins.section-base;
+
+  display: flex;
+  flex: 1;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: $color-bg;
+}
+
+.decor {
+  @include decor.decor-layer;
+}
+
+.ring {
+  @include decor.decor-ring;
+
+  top: -180px;
+  left: 50%;
+
+  width: 460px;
+  height: 460px;
+
+  opacity: 0.06;
+
+  transform: translateX(-50%);
+
+  @media (max-width: $breakpoint-mobile-sm) {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+// --- Карточка ------------------------------------------------------------------------
+
+.card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+
+  background-color: $color-surface;
+
+  text-align: center;
+
+  @media (min-width: $breakpoint-mobile) {
+    padding: $spacing-2xl $spacing-xl;
+  }
+}
+
+.title {
+  margin: 0 0 $spacing-md;
+
+  color: $color-text;
+  font-size: clamp($font-size-base, 4vw, 1.75rem);
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin-bottom: $spacing-md;
+}

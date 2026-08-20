@@ -1,0 +1,45 @@
+// =============================================================================
+// Темы проекта. Значения цветов определяются как CSS-переменные
+// на <html data-theme="dark|light">. Тема по умолчанию — тёмная.
+// =============================================================================
+
+:root,
+[data-theme='dark'] {
+  --color-bg: #0b0b0d;
+  --color-bg-alt: #121217;
+  --color-surface: #141417;
+  --color-surface-hover: #1b1b1f;
+  --color-border: #26262b;
+
+  --color-text: #f5f5f4;
+  --color-text-muted: #9c9ca3;
+
+  --color-accent: #d4af37;
+  --color-accent-hover: #e6c558;
+  --color-accent-contrast: #0b0b0d;
+
+  --color-danger: #e5484d;
+
+  --color-shadow: rgba(0, 0, 0, 0.5);
+}
+
+// Светлая тема: тёплая кремовая база, белые поверхности и мягкая золотая
+// гамма — блоки читаемо разделены фоном, границами и тенями.
+[data-theme='light'] {
+  --color-bg: #f6f4ee;
+  --color-bg-alt: #efece1;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f3efe4;
+  --color-border: #dcd6c6;
+
+  --color-text: #1c1a15;
+  --color-text-muted: #5d594e;
+
+  --color-accent: #a87f1c;
+  --color-accent-hover: #8a6512;
+  --color-accent-contrast: #ffffff;
+
+  --color-danger: #c13338;
+
+  --color-shadow: rgba(28, 26, 21, 0.14);
+}

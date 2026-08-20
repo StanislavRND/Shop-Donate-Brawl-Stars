@@ -1,0 +1,38 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from app.api.routes import api_router
+from app.api.routes import health as health_router
+from app.core.config import settings
+
+
+def create_app() -> FastAPI:
+    app = FastAPI(
+        title=settings.APP_NAME,
+        version=settings.APP_VERSION,
+        debug=settings.DEBUG,
+    )
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=settings.cors_origins_list,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    app.include_router(health_router.router, tags=["health"])
+    app.include_router(api_router, prefix=settings.API_V1_PREFIX)
+
+    @app.get("/", tags=["root"])
+    async def root() -> dict[str, str]:
+        return {
+            "message": f"{settings.APP_NAME} is running",
+            "docs": "/docs",
+            "health": "/health",
+        }
+
+    return app
+
+
+app = create_app()

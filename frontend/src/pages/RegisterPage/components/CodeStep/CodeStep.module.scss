@@ -1,0 +1,79 @@
+@use '@/shared/styles/variables' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  text-align: left;
+}
+
+.formError {
+  margin: 0;
+
+  color: $color-danger;
+  font-size: $font-size-sm;
+  line-height: 1.4;
+  text-align: center;
+}
+
+// Поле кода подтверждения: крупные разреженные цифры по центру, как OTP-код.
+.codeInput {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 12px;
+  text-align: center;
+
+
+  &::placeholder {
+    letter-spacing: 12px;
+    opacity: 0.4;
+  }
+}
+
+.resend {
+  padding: 0;
+  border: none;
+
+  color: $color-accent;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  background-color: transparent;
+  cursor: pointer;
+
+  transition: color $transition-fast;
+
+  &:hover:not(:disabled) {
+    color: $color-accent-hover;
+  }
+
+  &:disabled {
+    color: $color-text-muted;
+    cursor: default;
+  }
+}
+
+.switch {
+  margin: $spacing-md 0 0;
+
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}
+
+// Кнопка, выглядящая как ссылка (для <button>).
+.linkButton {
+  padding: 0;
+  border: none;
+
+  color: $color-accent;
+  font: inherit;
+  font-weight: $font-weight-medium;
+  background-color: transparent;
+  cursor: pointer;
+
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent-hover;
+  }
+}

@@ -1,0 +1,131 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/decor' as decor;
+@use '@/shared/styles/mixins' as mixins;
+
+// Типовая страница юридического документа.
+
+.document {
+  @include mixins.section-base;
+
+  background-color: $color-bg;
+}
+
+.decor {
+  @include decor.decor-layer;
+}
+
+.ring {
+  @include decor.decor-ring;
+
+  top: -200px;
+  right: -180px;
+
+  width: 440px;
+  height: 440px;
+
+  opacity: 0.08;
+}
+
+// --- Документ ------------------------------------------------------------------------
+
+.article {
+  position: relative;
+
+  max-width: 760px;
+}
+
+// Возврат на предыдущую страницу истории.
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  margin-bottom: $spacing-xl;
+  padding: $spacing-xs 0;
+
+  color: $color-text-muted;
+  background-color: transparent;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.title {
+  @include mixins.section-title;
+
+  font-size: clamp(2rem, 5vw, 2.5rem);
+}
+
+.updated {
+  margin: 0 0 $spacing-2xl;
+
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}
+
+.block {
+  margin-bottom: $spacing-2xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.heading {
+  margin: 0 0 $spacing-md;
+
+  color: $color-text;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  line-height: 1.3;
+}
+
+.paragraph {
+  margin: 0 0 $spacing-md;
+
+  color: $color-text-muted;
+  line-height: 1.7;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.listItem {
+  position: relative;
+
+  padding-left: $spacing-lg;
+
+  color: $color-text-muted;
+  line-height: 1.6;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0.55em;
+    left: $spacing-xs;
+
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+
+    background-color: $color-accent;
+  }
+}

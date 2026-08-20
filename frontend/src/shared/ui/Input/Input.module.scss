@@ -1,0 +1,95 @@
+@use '@/shared/styles/variables' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.label {
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+}
+
+.inputWrap {
+  position: relative;
+}
+
+.field {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+
+  color: $color-text;
+  background-color: $color-surface;
+  font: inherit;
+
+  transition:
+    border-color $transition-fast,
+    background-color $transition-fast;
+
+  &::placeholder {
+    color: $color-text-muted;
+    opacity: 0.55;
+  }
+
+  &:hover {
+    border-color: $color-accent;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+    background-color: $color-surface-hover;
+  }
+}
+
+// Отступ под кнопку-глазок справа.
+.withToggle {
+  padding-right: 44px;
+}
+
+.fieldError {
+  border-color: $color-danger;
+
+  &:hover,
+  &:focus {
+    border-color: $color-danger;
+  }
+}
+
+.toggle {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: $spacing-xs;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: $radius-sm;
+
+  color: $color-text-muted;
+  background-color: transparent;
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.errorText {
+  margin: 0;
+
+  color: $color-danger;
+  font-size: $font-size-sm;
+  line-height: 1.4;
+}
