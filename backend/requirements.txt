@@ -8,11 +8,13 @@ sqlalchemy[asyncio]==2.0.43
 asyncpg==0.30.0
 alembic==1.16.5
 greenlet==3.2.4
+psycopg2-binary==2.9.10
 
 # Settings / validation
 pydantic==2.11.9
 pydantic-settings==2.11.0
 email-validator==2.2.0
+
 
 # Security
 pyjwt==2.10.1
