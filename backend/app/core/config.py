@@ -20,11 +20,11 @@ class Settings(BaseSettings):
     API_V1_PREFIX: str = "/api/v1"
 
     # PostgreSQL
-    POSTGRES_HOST: str = "localhost"
+    POSTGRES_HOST: str = "ep-shy-lab-a6udjeu0.us-west-2.aws.neon.tech"
     POSTGRES_PORT: int = 5432
-    POSTGRES_USER: str = "postgres"
-    POSTGRES_PASSWORD: str = "postgres"
-    POSTGRES_DB: str = "shop_donate"
+    POSTGRES_USER: str = "neondb_owner"
+    POSTGRES_PASSWORD: str = "npg_6l1wWmUSZMGA"
+    POSTGRES_DB: str = "neondb"
     # Optional full override of the SQLAlchemy URL (used in tests / CI)
     DATABASE_URL: str | None = None
 
